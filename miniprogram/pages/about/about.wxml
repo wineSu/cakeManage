@@ -1,0 +1,26 @@
+
+  <image src="../../i/timg.jpg" style="width:100%;" mode="widthFix"></image>
+  <view class="text_c title">
+    {{dataall.story.title}}
+    <image src="../../i/line.png" style="width:70%;" ></image>
+  </view>
+  <view class='desc'>
+    {{dataall.story.cont}}
+  </view>
+
+  <view class="text_c title">
+    {{dataall.linian.title}}
+    <image src="../../i/line.png" style="width:70%;" ></image>
+  </view>
+  <view class='desc'>
+    <view class='text_c' wx:for="{{dataall.linian.cont}}" wx:key="{{index}}">{{item}}</view>
+  </view>
+  <view class="text_c title">
+    {{dataall.lianxi.title}}
+    <image src="../../i/line.png" style="width:70%;"></image>
+  </view>
+  <view class=' desc1'>
+    <view wx:for="{{dataall.lianxi.cont}}" wx:key="{{index}}">{{item}}</view>
+  </view>
+  <image src='{{dataall.wx}}' class='wx'></image>
+  <view class='text_c'>微信二维码</view>
