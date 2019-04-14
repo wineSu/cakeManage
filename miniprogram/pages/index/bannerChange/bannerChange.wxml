@@ -1,0 +1,9 @@
+<view class='list' wx:for="{{imgUrls}}" wx:key="{{item._id}}">
+  <image src='{{item.url}}' mode='aspectFit'></image>
+  <view class='del btn' bindtap='del' data-id="{{item._id}}" data-fileId="{{item.url}}">删除</view>
+  <view class='change btn' bindtap='change' data-id="{{item._id}}" data-fileId="{{item.url}}">更换图片</view>
+</view>
+<view class='add' bindtap='add'>
+  <view>+</view>
+  <view style='font-size:24rpx;font-weight:100;'>新增图片</view>
+</view>

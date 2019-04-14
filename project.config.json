@@ -9,8 +9,9 @@
 		"newFeature": true
 	},
 	"appid": "wxf6ce630fd26b0c56",
-	"projectname": "cakeCloud",
+	"projectname": "cakeManage",
 	"libVersion": "2.6.5",
+	"compileType": "miniprogram",
 	"condition": {
 		"search": {
 			"current": -1,

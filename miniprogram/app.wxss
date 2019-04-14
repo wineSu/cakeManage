@@ -71,3 +71,40 @@ swiper image{
   height: 130rpx;
   z-index: -1;
 }
+button{
+  font-size: 30rpx;
+}
+.btn{
+  padding: 10rpx 20rpx;
+  background: #AA8764;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.list{
+  border: 1rpx dashed #ccc;
+  position: relative;
+  margin-bottom: 20rpx;
+}
+.list image{
+  width: 100%;
+  height:  200rpx;
+}
+.del{
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+}
+.change{
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+}
+.add{
+  border: 1rpx dashed #ccc;
+  text-align: center;
+  font-size: 80rpx;
+  font-weight: 600;
+  color: #ccc;
+  padding: 20rpx 0;
+}

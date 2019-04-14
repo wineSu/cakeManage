@@ -6,6 +6,7 @@
         </swiper-item>
       </block>
     </swiper>
+    <button type="primary" bindtap='changeBanner'>修改轮播图</button>
   <view class="cake-info clearx">
     <view class="on-sale-today left">
       <view class="newPro-title">

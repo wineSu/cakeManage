@@ -1,6 +1,8 @@
 {
   "pages":[
+    "pages/editDetail/editDetail",
     "pages/index/index",
+    "pages/index/bannerChange/bannerChange",
     "pages/list/list",
     "pages/news/news",
     "pages/about/about",
