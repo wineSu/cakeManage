@@ -12,11 +12,12 @@
   border-radius: 5px;
   overflow: hidden;
   background: #fff;
+  position: relative;
 }
 .relative{
   position: relative;
 }
-.list image{
+.list .image{
   width: 344rpx;
   height: 344rpx;
 }
@@ -42,4 +43,23 @@
 
 .list .text_c text,.foods{
   color: #333!important;
+}
+.listadd{
+  border: 1rpx dashed #888;
+  box-sizing:border-box;
+  font-size: 30rpx;
+  color: #888;
+  text-align: center;
+}
+.listadd .v1{
+  font-size: 90rpx;
+  font-weight: 600;
+  padding-top: 150rpx;
+}
+.del{
+  position: absolute;
+  right:20rpx;
+  top:20rpx;
+  width: 50rpx;
+  height: 50rpx;
 }

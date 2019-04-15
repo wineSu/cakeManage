@@ -7,6 +7,13 @@ Component({
     listsData: {
       type: Object,
     },
+    listsType: {
+      type: String,
+    },
+    source:{
+      type: String,
+      value:''
+    }
   },
 
   /**
@@ -20,6 +27,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    add(e){
+      const data = e.currentTarget.dataset.type
+      wx.navigateTo({
+        url: '../editDetail/editDetail?type=add&name='+data+'&source='+this.data.source
+      })
+    }
   }
 })

@@ -14,28 +14,28 @@ swiper{
   width: 60%;
   height: 160rpx;
 }
-.list{
+.lists{
   padding: 30rpx 100rpx;
   background: #fff;
   position: relative;
 }
-.list .proimg{
+.lists .proimg{
   float: left;
   width: 300rpx;
   height: 300rpx;
   border-radius: 50%;
 }
-.list .infor{
+.lists .infor{
   float: right;
 }
 
-.list:nth-child(2n) image{
+.lists:nth-child(2n) image{
   float: right;
 }
-.list:nth-child(2n) .infor{
+.lists:nth-child(2n) .infor{
   float: left;
 }
-.list .tit{
+.lists .tit{
   width: 200rpx;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -45,7 +45,7 @@ swiper{
   padding: 60rpx 0 20rpx;
   border-bottom: 1rpx solid #AA8764;
 }
-.list .desc{
+.lists .desc{
   width: 200rpx;
   font-size: 26rpx;
   padding-bottom: 10rpx;
@@ -79,6 +79,6 @@ swiper{
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  height: 1px;
-  width: 50%;
+  height: 1px!important;
+  width: 50%!important;
 }

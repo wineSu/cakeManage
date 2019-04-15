@@ -10,7 +10,7 @@
     新品推荐
     <image src='../../i/tit.png'></image>
   </view>
-  <view class='list clearx' wx:for="{{list}}" wx:key="{{item.id}}">
+  <view class='lists clearx' wx:for="{{list}}" wx:key="{{item.id}}">
     <image class='proimg' src='{{item.url}}'></image>
     <view class='infor'>
       <view class='tit'>{{item.name}}</view>

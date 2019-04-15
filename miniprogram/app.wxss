@@ -108,3 +108,7 @@ button{
   color: #ccc;
   padding: 20rpx 0;
 }
+button{
+  background: #AA8764;
+  color: #fff;
+}

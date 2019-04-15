@@ -1,21 +1,22 @@
 <view class='list'>
-  <image src='{{recommend.url}}' mode='aspectFit'></image>
-  <view class='del btn' bindtap='change' data-id="{{recommend._id}}" data-fileid="{{recommend.url}}">更换图片</view>
+  <image src='{{datas.url}}' mode='aspectFit'></image>
+  <view wx:if="{{datas.url}}" class='del btn' bindtap='change' data-id="{{datas._id}}" data-fileid="{{datas.url}}">更换图片</view>
+  <view wx:else class='del btn' bindtap='addimg'>新增图片</view>
 </view>
 <view class='text_c tit'>
   名称
 </view>
-<input class='input' value="{{recommend.oldprice}}"></input>
+<input class='input' value="{{datas.oldprice}}" bindinput="bindKeyInput" data-type="name"></input>
 <view class='text_c tit'>
   尺寸
 </view>
-<input class='input' value="{{recommend.size}}"></input>
+<input class='input' value="{{datas.size}}" bindinput="bindKeyInput" data-type="size"></input>
 <view class='text_c tit'>
   原价
 </view>
-<input class='input' value="{{recommend.oldprice}}"></input>
+<input class='input' value="{{datas.oldprice}}" bindinput="bindKeyInput" data-type="oldprice"></input>
 <view class='text_c tit'>
   现价
 </view>
-<input class='input' value="{{recommend.price}}"></input>
-<view class="btns" bindtap='save' data-id="{{recommend._id}}">保存</view>
+<input class='input' value="{{datas.price}}" bindinput="bindKeyInput" data-type="price"></input>
+<view class="btns" bindtap='save' data-id="{{datas._id}}">保存</view>

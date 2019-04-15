@@ -55,6 +55,11 @@ Page({
       url: 'bannerChange/bannerChange'
     })
   },
+  changeTehui(){
+    wx.navigateTo({
+      url: '../editDetail/editDetail?name=recommend'
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

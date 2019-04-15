@@ -6,7 +6,7 @@
         </swiper-item>
       </block>
     </swiper>
-    <button type="primary" bindtap='changeBanner'>修改轮播图</button>
+    <button bindtap='changeBanner'>修改轮播图</button>
   <view class="cake-info clearx">
     <view class="on-sale-today left">
       <view class="newPro-title">
@@ -23,13 +23,14 @@
     </view>
       <image class="on-sale-pic right" src="{{recommend.url}}"></image>
   </view>
+  <button bindtap='changeTehui'>修改特惠</button>
   <view>
     <view class='title'>主厨推荐 <image src='../../i/indextit1.png'></image> </view>
-    <lists listsData="{{list.cakes}}"></lists>
+    <lists listsData="{{list.cakes}}" listsType="cakes" source="index"></lists>
 
     <view class='title'>咖啡下午茶<image src='../../i/indextit3.png'></image></view>
-    <lists listsData="{{list.cooffe}}"></lists>
+    <lists listsData="{{list.cooffe}}" listsType="cooffe" source="index"></lists>
 
     <view class='title'>精选食材<image src='../../i/indextit2.png'></image></view>
-    <lists listsData="{{list.food}}" class="listContFood"></lists>
+    <lists listsData="{{list.food}}" class="listContFood" listsType="food" source="index"></lists>
   </view>

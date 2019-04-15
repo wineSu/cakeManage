@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/editDetail/editDetail",
     "pages/index/index",
+    "pages/editDetail/editDetail",
     "pages/index/bannerChange/bannerChange",
     "pages/list/list",
     "pages/news/news",
