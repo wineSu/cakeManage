@@ -36,17 +36,35 @@ Page({
     dbGet({
       name: 'recommend'
     }).then((data)=>{
+      if (data[0]){
+        this.setData({
+          recommend: data[0]
+        })
+      }
+    })
+
+    dbGet({
+      name: 'cakes'
+    }).then((data)=>{
       this.setData({
-        recommend: data[0]
+        cakes: data
       })
     })
 
     dbGet({
-      name: 'indexList',
-      loadEnd: true
-    }).then((data)=>{
+      name: 'coffe'
+    }).then((data) => {
       this.setData({
-        list: data[0]
+        coffe: data
+      })
+    })
+
+    dbGet({
+      name: 'food',
+      loadEnd: true
+    }).then((data) => {
+      this.setData({
+        food: data
       })
     })
   },

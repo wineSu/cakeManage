@@ -1,6 +1,14 @@
 export const app = getApp();
 const db = app.globalData.db
 
+const tip = (text) => {
+  wx.showToast({
+    title: text,
+    'icon': 'none',
+    duration: 2000
+  })
+}
+
 //查找
 export const dbGet = (param)=>{
   if (param.loadStart){
@@ -16,6 +24,8 @@ export const dbGet = (param)=>{
         if (param.loadEnd) {
           wx.hideLoading()
         }
+      }).catch(err=>{
+        tip('请联系开发者，连接错误！')
       })
   })
   return promise
@@ -43,18 +53,10 @@ export const dbAdd = (param) => {
     }
     control.then(res => {
           resolve(res)
-          wx.showToast({
-            title: '操作成功',
-            'icon': 'none',
-            duration: 2000
-          })
+          tip('操作成功！')
         })
         .catch(err=>{
-          wx.showToast({
-            title: '操作失败，请重试！',
-            'icon': 'none',
-            duration: 2000
-          })
+          tip('操作失败，请重试！')
           reject(err)
         })
   })
