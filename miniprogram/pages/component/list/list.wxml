@@ -1,14 +1,14 @@
 <view class='listCont'>
-  <view class=' list' wx:for="{{listsData}}" wx:key="{{item.id}}" data-id="{{item.id}}" data-type="{{item.type}}" bindtap='goedit'>
+  <view class=' list' wx:for="{{listsData}}" wx:key="{{item._id}}" data-id="{{item._id}}" bindtap='handle'>
     <view class='relative'>
       <image class='image' src='{{item.url}}'></image>
       <view class='absolute'>{{item.name}}</view>
     </view>
     <view class='text_c foods' wx:if="{{item.desc}}">{{item.desc}}</view>
     <view class='text_c' wx:else>￥{{item.price}}/<text>{{item.size||item.weight}}{{item.size?'寸':'g'}}</text></view>
-    <image class='del' src='../../../i/del.png'></image>
+    <image class='del' src='../../../i/del.png' data-fileid="{{item.url}}" data-id="{{item._id}}" catchtap='del'></image>
   </view>
-  <view class='listadd text_c list' bindtap='add' data-type="{{listsType}}">
+  <view class='listadd text_c list' bindtap='handle' >
     <view class='v1'>+</view>
     <view>添加</view>
   </view>

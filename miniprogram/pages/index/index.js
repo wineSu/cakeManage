@@ -74,8 +74,12 @@ Page({
     })
   },
   changeTehui(){
+    let id = ''
+    if (this.data.recommend){
+      id = this.data.recommend._id
+    }
     wx.navigateTo({
-      url: '../editDetail/editDetail?name=recommend'
+      url: '../editDetail/editDetail?name=recommend&id='+id
     })
   },
   /**

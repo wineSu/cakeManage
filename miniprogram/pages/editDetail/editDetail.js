@@ -20,35 +20,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    param = {}
     op = options
+    this.setData({
+      types: op.type || 'cakes'
+    })
     this.refurbish()
   },
   refurbish(){
-    if (op.name == 'recommend'){
-      //特惠
-      dbGet({
-        name: op.name
-      }).then((data) => {
-        this.setData({
-          datas: data[0] || {}
-        })
+    dbGet({
+      name: op.name,
+      where: op.id
+    }).then((datas) => {
+      this.setData({
+        datas
       })
-    }
-    if (op.source == 'index' && op.type == "add"){
-      //首页新增
-      dbGet({
-        name: op.name
-      }).then((data) => {
-        this.setData({
-          datas: {}
-        })
-      })
-    }
+    })
   },
   addimg(){
     dbUpload({
       name: op.name,
     }).then(res => {
+      op.id = res._id
       this.refurbish()
     })
   },
@@ -68,12 +61,17 @@ Page({
   },
   save(e){
     const data = e.currentTarget.dataset
-    dbAdd({
-      name: op.name,
-      where: data.id,
-      data: param
-    }).then(res => {
-      this.refurbish()
-    })
+    //数据没有修改不保存
+    let arr = Object.getOwnPropertyNames(param)
+    console.log(param)
+    if (arr.length != 0){
+      dbAdd({
+        name: op.name,
+        where: data.id,
+        data: param
+      }).then(res => {
+        this.refurbish()
+      })
+    }
   }
 })

@@ -26,11 +26,11 @@
   <button bindtap='changeTehui'>修改特惠</button>
   <view>
     <view class='title'>主厨推荐 <image src='../../i/indextit1.png'></image> </view>
-    <lists listsData="{{cakes}}" listsType="cakes" source="index"></lists>
+    <lists listsData="{{cakes}}" listsName="cakes"></lists>
 
     <view class='title'>咖啡下午茶<image src='../../i/indextit3.png'></image></view>
-    <lists listsData="{{coffe}}" listsType="coffe" source="index"></lists>
+    <lists listsData="{{coffe}}" listsName="coffe" listtype='tea'></lists>
 
     <view class='title'>精选食材<image src='../../i/indextit2.png'></image></view>
-    <lists listsData="{{food}}" class="listContFood" listsType="food" source="index"></lists>
+    <lists listsData="{{food}}" class="listContFood" listsName="food" listtype='other'></lists>
   </view>

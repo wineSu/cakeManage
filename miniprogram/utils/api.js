@@ -17,16 +17,30 @@ export const dbGet = (param)=>{
     })
   }
   const promise = new Promise((resolve, reject) => {
-    db.collection(param.name)
-      .get()
-      .then(res => {
-        resolve(res.data)
-        if (param.loadEnd) {
-          wx.hideLoading()
-        }
-      }).catch(err=>{
-        tip('请联系开发者，连接错误！')
-      })
+    if (param.where){
+      db.collection(param.name)
+        .doc(param.where)
+        .get()
+        .then(res => {
+          resolve(res.data)
+          if (param.loadEnd) {
+            wx.hideLoading()
+          }
+        }).catch(err => {
+          tip('请联系开发者，连接错误！')
+        })
+    }else{
+      db.collection(param.name)
+        .get()
+        .then(res => {
+          resolve(res.data)
+          if (param.loadEnd) {
+            wx.hideLoading()
+          }
+        }).catch(err => {
+          tip('请联系开发者，连接错误！')
+        })
+    }
   })
   return promise
 }
@@ -57,7 +71,6 @@ export const dbAdd = (param) => {
         })
         .catch(err=>{
           tip('操作失败，请重试！')
-          reject(err)
         })
   })
   return promise
