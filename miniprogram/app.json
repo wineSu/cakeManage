@@ -1,9 +1,10 @@
 {
   "pages":[
+    "pages/list/list",
     "pages/index/index",
     "pages/editDetail/editDetail",
     "pages/index/bannerChange/bannerChange",
-    "pages/list/list",
+    
     "pages/news/news",
     "pages/about/about",
     "pages/classify/classify"
