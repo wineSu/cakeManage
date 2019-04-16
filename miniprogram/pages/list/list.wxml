@@ -1,3 +1,9 @@
-  <view>
-    <image wx:for="{{imgUrls}}" wx:key="{{item._id}}" data-id="{{item._id}}" data-name="{{item.name}}" src="{{item.url}}" bindtap='goList'></image>
+  <view class='listcont' wx:for="{{imgUrls}}" wx:key="{{item._id}}" data-id="{{item._id}}"bindtap='goList'>
+    <image class="image" src="{{item.url}}"></image>
+    <image class='del' src='../../i/del.png' data-fileid="{{item.url}}" data-id="{{item._id}}" catchtap='del'></image>
+    <image class='del edit' src='../../i/edit.png' data-fileid="{{item.url}}" data-id="{{item._id}}" catchtap='change'></image>
+  </view>
+  <view class='add' bindtap='add'>
+    <view>+</view>
+    <view style='font-size:24rpx;font-weight:100;'>新增系列</view>
   </view>

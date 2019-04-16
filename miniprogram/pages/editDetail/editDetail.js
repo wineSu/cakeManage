@@ -63,7 +63,6 @@ Page({
     const data = e.currentTarget.dataset
     //数据没有修改不保存
     let arr = Object.getOwnPropertyNames(param)
-    console.log(param)
     if (arr.length != 0){
       dbAdd({
         name: op.name,

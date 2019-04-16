@@ -6,9 +6,10 @@
     </view>
     <view class='text_c foods' wx:if="{{item.desc}}">{{item.desc}}</view>
     <view class='text_c' wx:else>￥{{item.price}}/<text>{{item.size||item.weight}}{{item.size?'寸':'g'}}</text></view>
-    <image class='del' src='../../../i/del.png' data-fileid="{{item.url}}" data-id="{{item._id}}" catchtap='del'></image>
+    <image class='del' src='../../../i/del.png' data-fileid="{{item.url}}" data-id="{{item._id}}" catchtap='{{classfiy?"classfiydel":"del"}}'></image>
+    
   </view>
-  <view class='listadd text_c list' bindtap='handle' >
+  <view class='listadd text_c list' bindtap='{{classfiy?"classfiyhandle":"handle"}}' >
     <view class='v1'>+</view>
     <view>添加</view>
   </view>

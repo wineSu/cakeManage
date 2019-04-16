@@ -1,4 +1,10 @@
-// pages/classify/classify.js
+import {
+  dbGet,
+  dbAdd,
+  dbUpload,
+  dbDel
+} from '../../utils/api';
+
 Page({
 
   /**
@@ -12,74 +18,31 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '加载中'
-    })
-    const that = this
-    const db = wx.cloud.database()
-    db.collection('classify').doc(options.id).get({
-      success(res) {
-        that.setData({
-          imgUrl: res.data.url
-        })
-      }
-    })
-    db.collection(options.name).get({
-      success(res) {
-        wx.hideLoading()
-        that.setData({
-          listData: res.data
-        })
-      }
+    dbGet({
+      name: 'classify',
+      where: options.id
+    }).then((data) => {
+      this.setData({
+        imgUrl: data.url
+      })
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  refurbish() {
+    dbGet({
+      name: 'list'
+    }).then((data) => {
+      console.log(data)
+      this.setData({
+        listData: data
+      })
+    })
   },
-
+  
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.refurbish()
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  
 })

@@ -3,6 +3,7 @@
     "pages/list/list",
     "pages/index/index",
     "pages/editDetail/editDetail",
+    "pages/editDetails/editDetails",
     "pages/index/bannerChange/bannerChange",
     
     "pages/news/news",

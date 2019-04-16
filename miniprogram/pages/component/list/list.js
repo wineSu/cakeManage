@@ -14,6 +14,9 @@ Component({
     listtype:{
       type: String,
       value: 'cakes'
+    },
+    classfiy:{
+      type: Boolean
     }
   },
 
@@ -48,6 +51,12 @@ Component({
         let pages = getCurrentPages()[0];//当前页面
         pages.onShow()
       })
+    },
+    classfiydel(e){
+      
+    },
+    classfiyhandle(e){
+
     }
   }
 })
