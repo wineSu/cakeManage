@@ -1,13 +1,13 @@
 {
   "pages":[
-    "pages/list/list",
+    "pages/about/about",
     "pages/index/index",
     "pages/editDetail/editDetail",
     "pages/editDetails/editDetails",
     "pages/index/bannerChange/bannerChange",
-    
+    "pages/list/list",
     "pages/news/news",
-    "pages/about/about",
+    
     "pages/classify/classify"
   ],
   "window":{

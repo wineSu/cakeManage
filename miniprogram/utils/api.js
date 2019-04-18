@@ -1,6 +1,6 @@
 export const app = getApp();
 const db = app.globalData.db
-
+export const _ = db.command
 const tip = (text) => {
   wx.showToast({
     title: text,
@@ -17,9 +17,21 @@ export const dbGet = (param)=>{
     })
   }
   const promise = new Promise((resolve, reject) => {
-    if (param.where){
+    if (param.doc){
       db.collection(param.name)
-        .doc(param.where)
+        .doc(param.doc)
+        .get()
+        .then(res => {
+          resolve(res.data)
+          if (param.loadEnd) {
+            wx.hideLoading()
+          }
+        }).catch(err => {
+          tip('请联系开发者，连接错误！')
+        })
+    }else if(param.where){
+      db.collection(param.name)
+        .where(param.where)
         .get()
         .then(res => {
           resolve(res.data)
@@ -54,9 +66,9 @@ export const dbAdd = (param) => {
   }
   const promise = new Promise((resolve, reject) => {
     let control ={};
-    if (param.where){
+    if (param.doc){
       //数据替换
-      control = db.collection(param.name).doc(param.where).update({
+      control = db.collection(param.name).doc(param.doc).update({
         data: param.data
       })
     }else{
@@ -84,9 +96,23 @@ export const dbDel = (param) => {
       content: '删除后不可恢复，确认删除吗？',
       success(res) {
         if (res.confirm) {
-          db.collection(param.name).doc(param.where).remove().then(res => {
+          //删除多个
+          if(param.where){
+            wx.cloud.callFunction({
+              // 云函数名称
+              name: 'del',
+              // 传给云函数的参数
+              data: {
+                names: param.name,
+                where: param.where
+              }
+            })
+          }else{
+            //删除单个
+            db.collection(param.name).doc(param.doc).remove().then(res => {
               resolve(res)
             })
+          }
           if (param.fileId){
             //删除文件的情况   删除源文件
             wx.cloud.deleteFile({
@@ -131,7 +157,7 @@ export const dbUpload = (param) => {
           //存储或者更新数据
           return dbAdd({
             name: nameStr,
-            where: param.where || null,
+            doc: param.doc || null,
             loadStart: true,
             data: {
               url: fileID

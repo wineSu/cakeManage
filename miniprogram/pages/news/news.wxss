@@ -82,3 +82,10 @@ swiper{
   height: 1px!important;
   width: 50%!important;
 }
+.del{
+  position: absolute;
+  right: 10px;
+  top:20px;
+  width: 60rpx;
+  height: 60rpx;
+}

@@ -22,7 +22,9 @@ Page({
   },
   refurbish() {
     dbGet({
-      name: 'classify'
+      name: 'classify',
+      loadStart: true,
+      loadEnd: true
     }).then((data) => {
       this.setData({
         imgUrls: data
@@ -31,9 +33,8 @@ Page({
   },
   goList(e){
     const id = e.currentTarget.dataset.id
-    const name = e.currentTarget.dataset.name
     wx.navigateTo({
-      url: '../classify/classify?id=' + id + '&name=' + name,
+      url: '../classify/classify?id=' + id
     })
   },
   /**

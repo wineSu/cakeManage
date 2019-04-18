@@ -1,5 +1,5 @@
 import { dbGet, dbAdd, dbUpload, dbDel } from '../../../utils/api';
-
+let name = 'banner'
 Page({
 
   /**
@@ -13,11 +13,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(options.name){
+      name = 'news'
+    }
     this.refurbish()
   },
   refurbish(){
     dbGet({
-      name: 'banner'
+      name
     }).then((data) => {
       this.setData({
         imgUrls: data
@@ -26,7 +29,7 @@ Page({
   },
   add(e){
     dbUpload({
-      name: 'banner'
+      name
     }).then(res=>{
       this.refurbish()
     })
@@ -34,9 +37,9 @@ Page({
   del(e){
     const data = e.currentTarget.dataset
     dbDel({
-      name: 'banner',
+      name,
       fileId: data.fileid,
-      where: data.id,
+      doc: data.id,
     }).then(res => {
       this.refurbish()
     })
@@ -44,9 +47,9 @@ Page({
   change(e){
     const data = e.currentTarget.dataset
     dbUpload({
-      name: 'banner',
+      name,
       fileId: data.fileid,
-      where: data.id,
+      doc: data.id,
     }).then(res => {
       this.refurbish()
     })

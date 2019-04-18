@@ -9,7 +9,7 @@
     <image class='del' src='../../../i/del.png' data-fileid="{{item.url}}" data-id="{{item._id}}" catchtap='{{classfiy?"classfiydel":"del"}}'></image>
     
   </view>
-  <view class='listadd text_c list' bindtap='{{classfiy?"classfiyhandle":"handle"}}' >
+  <view class='listadd text_c list' bindtap='handle' >
     <view class='v1'>+</view>
     <view>添加</view>
   </view>

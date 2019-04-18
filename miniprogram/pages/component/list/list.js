@@ -16,7 +16,11 @@ Component({
       value: 'cakes'
     },
     classfiy:{
-      type: Boolean
+      type: Boolean,
+      value: false
+    },
+    parid:{
+      type: String
     }
   },
 
@@ -37,26 +41,50 @@ Component({
       if (data.id){
         _id = data.id
       }
-      wx.navigateTo({
-        url: '../editDetail/editDetail?type=' + this.data.listtype+'&name=' + this.data.listsName + '&id=' + _id
-      })
+      if (this.data.classfiy){
+        wx.navigateTo({
+          url: '../editDetails/editDetails?parid=' + this.data.parid + '&id=' + _id
+        })
+      }else{
+        wx.navigateTo({
+          url: '../editDetail/editDetail?type=' + this.data.listtype+'&name=' + this.data.listsName + '&id=' + _id
+        })
+      }
     },
     del(e){
       const data = e.currentTarget.dataset
       dbDel({
         name: this.data.listsName,
         fileId: data.fileid,
-        where: data.id,
+        doc: data.id,
       }).then(res => {
         let pages = getCurrentPages()[0];//当前页面
         pages.onShow()
       })
     },
     classfiydel(e){
-      
-    },
-    classfiyhandle(e){
-
+      const data = e.currentTarget.dataset
+      dbDel({
+        name: 'list',
+        fileId: data.fileid,
+        doc: data.id,
+      }).then(res => {
+        let pagess = getCurrentPages()[1];//当前页面
+        pagess.onShow()
+        wx.cloud.callFunction({
+          // 云函数名称
+          name: 'del',
+          // 传给云函数的参数
+          data: {
+            names: 'conect',
+            where:{
+              id: data.id
+            }
+          }
+        })
+        let pages = getCurrentPages()[0];//当前页面
+        pages.onShow()
+      })
     }
   }
 })

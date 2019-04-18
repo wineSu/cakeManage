@@ -1,1 +1,1 @@
-/* pages/editDetails/editDetails.wxss */
+@import '../editDetail/editDetail.wxss';

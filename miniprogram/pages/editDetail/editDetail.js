@@ -30,7 +30,7 @@ Page({
   refurbish(){
     dbGet({
       name: op.name,
-      where: op.id
+      doc: op.id
     }).then((datas) => {
       this.setData({
         datas
@@ -50,7 +50,7 @@ Page({
     dbUpload({
       name: op.name,
       fileId:data.fileid,
-      where: data.id,
+      doc: data.id,
     }).then(res => {
       this.refurbish()
     })
@@ -66,7 +66,7 @@ Page({
     if (arr.length != 0){
       dbAdd({
         name: op.name,
-        where: data.id,
+        doc: data.id,
         data: param
       }).then(res => {
         this.refurbish()
