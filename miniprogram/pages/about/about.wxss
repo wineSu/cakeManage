@@ -32,3 +32,16 @@ page{
   border-radius: 5px;
   font-size: 26rpx;
 }
+.input{
+  border: 1px solid #fff;
+  margin-bottom: 10rpx;
+}
+.del{
+  position: absolute;
+  right:120rpx;
+  top:20rpx;
+  width: 60rpx;
+  height: 60rpx;
+  background: #fff;
+  border-radius: 100%;
+}

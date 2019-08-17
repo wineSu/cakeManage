@@ -62,9 +62,9 @@ Page({
     dbDel({
       name: 'newsList',
       fileId: data.fileid,
-      where: data.id,
+      doc: data.id,
     }).then(res => {
-      this.refurbish()
+      this.onShow()
     })
   },
   goedit(e){

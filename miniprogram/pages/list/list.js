@@ -56,7 +56,7 @@ Page({
     dbDel({
       name: 'classify',
       fileId: data.fileid,
-      where: data.id,
+      doc: data.id,
     }).then(res => {
       this.refurbish()
     })
@@ -66,7 +66,7 @@ Page({
     dbUpload({
       name: 'classify',
       fileId: data.fileid,
-      where: data.id,
+      doc: data.id,
     }).then(res => {
       this.refurbish()
     })

@@ -69,8 +69,6 @@ Component({
         fileId: data.fileid,
         doc: data.id,
       }).then(res => {
-        let pagess = getCurrentPages()[1];//当前页面
-        pagess.onShow()
         wx.cloud.callFunction({
           // 云函数名称
           name: 'del',
@@ -81,9 +79,10 @@ Component({
               id: data.id
             }
           }
+        }).then(res=>{
+          let pages = getCurrentPages()[1];//当前页面
+          pages.onShow()
         })
-        let pages = getCurrentPages()[0];//当前页面
-        pages.onShow()
       })
     }
   }

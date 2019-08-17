@@ -106,6 +106,8 @@ export const dbDel = (param) => {
                 names: param.name,
                 where: param.where
               }
+            }).then(res => {
+              resolve(res)
             })
           }else{
             //删除单个
